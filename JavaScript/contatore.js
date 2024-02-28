@@ -1,11 +1,9 @@
-const storageCounter = "counter-memory";
-const counterTitle = document.querySelectorAll("h2");
+let i = sessionStorage.getItem("count") ? parseInt(sessionStorage.getItem("count")) : 0;
 
-setInterval(() => {
-  localStorage.setItem(storageCounter, counter++);
-  counterTitle.innerText = sessionStorage.getItem(storageCounter);
-}, 1000);
+const conta = function () {
+  i = i + 1;
+  document.getElementById("timer").innerText = i + " secondi di sessione aperta";
+  sessionStorage.setItem("count", i);
+};
 
-window.onload=(){
-    
-}
+setInterval(conta, 1000);
